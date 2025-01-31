@@ -9,21 +9,22 @@ module.exports = function (app) {
     
     let initNum = convertHandler.getNum(input);
     let initUnit = convertHandler.getUnit(input);
+    
+// 如果数字和单位都无效，返回 400
+if (initNum === null && initUnit === null) {
+  return res.status(400).send("invalid number and unit");
+}
 
-    // 如果数字和单位都无效，返回 400
-    if (initNum === null && initUnit === null) {
-        return res.status(400).json({ error: 'invalid number and unit' });
-    }
+// 如果单位无效，返回 400
+if (initUnit === null) {
+  return res.status(400).send("invalid unit");
+}
 
-    // 如果数字无效，返回 400
-    if (initNum === null) {
-        return res.status(400).json({ error: 'invalid number' });
-    }
+// 如果数字无效，返回 400
+if (initNum === null) {
+  return res.status(400).send("invalid number");
+}
 
-    // 如果单位无效，返回 400
-    if (initUnit === null) {
-        return res.status(400).json({ error: 'invalid unit' });
-    }
 
     let returnUnit = convertHandler.getReturnUnit(initUnit);
     let returnNum = convertHandler.convert(initNum, initUnit);
