@@ -33,5 +33,5 @@ module.exports = function (app) {
 });
 
 
-  app.use(router); // ✅ 这样 `app` 才能正确使用 router
+  app.use(router);
 };

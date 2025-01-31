@@ -15,7 +15,7 @@ function ConvertHandler() {
           result = parseFloat(numStr);
       }
 
-      return isNaN(result) ? null : parseFloat(result.toFixed(5));
+      return isNaN(result) ? null : parseFloat(result.toPrecision(6));
   };
 
   this.getUnit = function (input) {
@@ -47,11 +47,11 @@ function ConvertHandler() {
           mi: 1.60934,
           km: 1 / 1.60934,
       };
-      return parseFloat((initNum * conversionRates[initUnit]).toFixed(5));
+      return parseFloat((initNum * conversionRates[initUnit]).toPrecision(6));
   };
 
   this.getString = function (initNum, initUnit, returnNum, returnUnit) {
-      return `${initNum} ${this.spellOutUnit(initUnit)} converts to ${returnNum.toFixed(5)} ${this.spellOutUnit(
+      return `${initNum} ${this.spellOutUnit(initUnit)} converts to ${returnNum.toPrecision(6)} ${this.spellOutUnit(
           returnUnit
       )}`;
   };
