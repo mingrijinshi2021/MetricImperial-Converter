@@ -149,7 +149,7 @@ suite('Functional Tests', function () {
         assert.property(res.body, 'initUnit');
         assert.property(res.body, 'returnNum');
         assert.property(res.body, 'returnUnit');
-        assert.approximately(res.body.returnNum, 0.897, 0.0001); // 确保返回值准确
+        assert.approximately(res.body.returnNum, 1.57727, 0.0001); // 确保返回值准确
         done();
       });
   });
@@ -163,7 +163,7 @@ suite('Functional Tests', function () {
         assert.equal(res.status, 200);
         assert.isObject(res.body);
         assert.property(res.body, 'string');
-        assert.match(res.body.string, /5 gal converts to 18.92705 l/);  // 结果字符串
+        assert.match(res.body.string, /5 gallons converts to 18.92705 liters/);  // 结果字符串
         done();
       });
   });
