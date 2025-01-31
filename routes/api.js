@@ -12,21 +12,21 @@ module.exports = function (app) {
 
 // 判断是否无效的辅助函数
 const isInvalid = (val) => val === null || val === undefined || val === "";
-
 // 如果数字和单位都无效，返回 400
 if (isInvalid(initNum) && isInvalid(initUnit)) {
-  return res.status(400).send("invalid number and unit");
+  return res.json('invalid unit and number');
 }
 
 // 如果单位无效，返回 400
 if (isInvalid(initUnit)) {
-  return res.status(400).send("invalid unit");
+  return res.json('invalid unit');
 }
 
 // 如果数字无效，返回 400
 if (isInvalid(initNum)) {
-  return res.status(400).send("invalid number");
+  return res.json('invalid number');
 }
+
 
     
 
