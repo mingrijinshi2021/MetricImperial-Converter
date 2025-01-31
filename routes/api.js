@@ -9,22 +9,26 @@ module.exports = function (app) {
     
     let initNum = convertHandler.getNum(input);
     let initUnit = convertHandler.getUnit(input);
-    
+
+// 判断是否无效的辅助函数
+const isInvalid = (val) => val === null || val === undefined || val === "";
+
 // 如果数字和单位都无效，返回 400
-if (initNum === null && initUnit === null) {
+if (isInvalid(initNum) && isInvalid(initUnit)) {
   return res.status(400).send("invalid number and unit");
 }
 
 // 如果单位无效，返回 400
-if (initUnit === null) {
+if (isInvalid(initUnit)) {
   return res.status(400).send("invalid unit");
 }
 
 // 如果数字无效，返回 400
-if (initNum === null) {
+if (isInvalid(initNum)) {
   return res.status(400).send("invalid number");
 }
 
+    
 
     let returnUnit = convertHandler.getReturnUnit(initUnit);
     let returnNum = convertHandler.convert(initNum, initUnit);
