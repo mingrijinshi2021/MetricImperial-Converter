@@ -29,7 +29,13 @@ module.exports = function (app) {
     let returnNum = convertHandler.convert(initNum, initUnit);
     let resultString = convertHandler.getString(initNum, initUnit, returnNum, returnUnit);
     
-    res.json({ string: resultString });
+    res.json({
+      initNum: initNum,
+      initUnit: initUnit,
+      returnNum: returnNum,
+      returnUnit: returnUnit,
+      string: resultString
+    });
 });
 
 
