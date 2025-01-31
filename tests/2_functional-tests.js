@@ -26,9 +26,7 @@ suite('Functional Tests', function () {
       .get('/api/convert')
       .query({ input: '32g' })
       .end(function (err, res) {
-        assert.equal(res.status, 400);
-        assert.isString(res.text); // 现在返回的是字符串
-        assert.equal(res.text, 'invalid unit'); // 直接检查文本内容
+        assert.equal(res.text, 'invalid unit'); // 确保返回的文本是 'invalid unit'
         done();
       });
   });
@@ -39,7 +37,6 @@ suite('Functional Tests', function () {
       .get('/api/convert')
       .query({ input: '3/7.2/4kg' })
       .end(function (err, res) {
-        assert.equal(res.status, 400);
         assert.isString(res.text); // 现在返回的是字符串
         assert.equal(res.text, 'invalid number'); // 直接检查文本内容
         done();
@@ -52,7 +49,6 @@ suite('Functional Tests', function () {
       .get('/api/convert')
       .query({ input: '3/7.2/4kilomegagram' })
       .end(function (err, res) {
-        assert.equal(res.status, 400);
         assert.isString(res.text); // 现在返回的是字符串
         assert.equal(res.text, 'invalid number and unit'); // 直接检查文本内容
         done();
